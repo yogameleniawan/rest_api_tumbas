@@ -18,8 +18,6 @@ class AuthController extends Controller
 
     public function showFormLogin()
     {
-        $user = User::all();
-        dd($user);
         return view('login');
     }
 
