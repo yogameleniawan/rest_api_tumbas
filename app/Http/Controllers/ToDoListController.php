@@ -37,7 +37,12 @@ class ToDoListController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $task = Task::all();
+        $task->description = $request->description;
+        $task->category_id = $request->category_id;
+        if ($task->save()) {
+            return new TaskResource($task);
+        }
     }
 
     /**
@@ -48,7 +53,9 @@ class ToDoListController extends Controller
      */
     public function show($id)
     {
-        //
+        $task = Task::find($id);
+
+        return new TaskResource($task);
     }
 
     /**
@@ -71,7 +78,12 @@ class ToDoListController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $task = Task::find($id);
+        $task->description = $request->description;
+        $task->category_id = $request->category_id;
+        if ($task->save()) {
+            return new TaskResource($task);
+        }
     }
 
     /**
@@ -82,6 +94,9 @@ class ToDoListController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $task = Task::find($id);
+        if ($task->delete()) {
+            return new TaskResource($task);
+        }
     }
 }
