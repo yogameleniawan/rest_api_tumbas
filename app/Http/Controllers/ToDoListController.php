@@ -37,7 +37,7 @@ class ToDoListController extends Controller
      */
     public function store(Request $request)
     {
-        $task = Task::all();
+        $task = new Task();
         $task->description = $request->description;
         $task->category_id = $request->category_id;
         if ($task->save()) {
