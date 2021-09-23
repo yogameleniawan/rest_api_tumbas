@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Resources\TaskResource;
 use App\Models\Task;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class ToDoListController extends Controller
 {
@@ -38,6 +39,7 @@ class ToDoListController extends Controller
     public function store(Request $request)
     {
         $task = new Task();
+        $task->id = Str::random(5);
         $task->description = $request->description;
         $task->category_id = $request->category_id;
         if ($task->save()) {
