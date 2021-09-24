@@ -55,7 +55,7 @@ class ToDoListController extends Controller
      */
     public function show($id)
     {
-        $task = Task::find($id);
+        $task = Task::where('category_id', '=', $id)->get();
 
         return new TaskResource($task);
     }
