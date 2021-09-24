@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Resources\CategoryTaskResource;
 use App\Models\CategoryTask;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 
 class CategoryTaskController extends Controller
 {
@@ -38,7 +39,7 @@ class CategoryTaskController extends Controller
     public function store(Request $request)
     {
         $category = new CategoryTask();
-        $category->id = $request->id;
+        $category->id = Str::random(5);;
         $category->name = $request->name;
         $category->icon = $request->icon;
         if ($category->save()) {
