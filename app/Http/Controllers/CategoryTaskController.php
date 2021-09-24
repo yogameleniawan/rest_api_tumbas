@@ -80,7 +80,6 @@ class CategoryTaskController extends Controller
     public function update(Request $request, $id)
     {
         $category = CategoryTask::find($id);
-        $category->id = $request->id;
         $category->name = $request->name;
         $category->icon = $request->icon;
         if ($category->save()) {
