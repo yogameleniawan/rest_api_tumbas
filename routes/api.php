@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CategoryTaskController;
 use App\Http\Controllers\ToDoListController;
 use App\Models\CategoryTask;
 use Illuminate\Http\Request;
@@ -22,5 +23,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::prefix('v1')->group(function () {
     Route::apiResource('task', ToDoListController::class);
-    Route::apiResource('category', CategoryTask::class);
+    Route::apiResource('category', CategoryTaskController::class);
 });
