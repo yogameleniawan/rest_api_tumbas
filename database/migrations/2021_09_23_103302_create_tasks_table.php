@@ -17,7 +17,7 @@ class CreateTasksTable extends Migration
             $table->char('id', 5)->primary();
             $table->string("description");
             $table->char('category_id', 5);
-            $table->foreign('category_id')->references('id')->on('category_task')->onDelete('RESTRICT')->onUpdate('CASCADE');
+            $table->foreign('category_id')->references('id')->on('category_task')->onDelete('CASCADE')->onUpdate('CASCADE');
             $table->timestamps();
         });
     }
